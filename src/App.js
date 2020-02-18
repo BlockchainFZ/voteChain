@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Web3 from 'web3';
 import './App.css';
+import { TODO_LIST_ABI, TODO_LIST_ADDRESS } from './config.js'
+
 
 class App extends Component {
 
@@ -10,12 +12,25 @@ class App extends Component {
 
 
     async loadBlockchainData(){
-      const web3 = new Web3(Web3.givenProvider || "http://localhost:7545")
+      //const ethereum = window.ethereum;
+      //const enabledWeb3 = await ethereum.enable();
+
+      const web3 = new Web3(Web3.givenProvider)
       const accounts = await web3.eth.getAccounts()
-      console.log('accounts:', accounts[0])
+      console.log(accounts[0])
+
       this.setState({
         account:accounts[0],
       });
+      const todoList = new web3.eth.Contract(TODO_LIST_ABI, TODO_LIST_ADDRESS)
+      this.setState({
+        todoList
+      })
+      const taskCount = await todoList.methods.taskCount().call()
+      this.setState({
+        taskCount
+      })
+      console.log('taskCount',todoList)
 
     }
 
@@ -23,6 +38,7 @@ class App extends Component {
         super(props);
         this.state = {
           account: '',
+          taskCount: 0,
         }
     }
 
@@ -30,7 +46,7 @@ class App extends Component {
         return (
           <div className="container">
             <h1>Hello Boss</h1>
-            <p>Your Account {this.state.account}</p>
+            <p>Task Count {this.state.taskCount}</p>
           </div>
         );
       }

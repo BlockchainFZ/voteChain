@@ -1,4 +1,4 @@
-export const TODO_LIST_ADDRESS = '0x345cA3e014Aaf5dcA488057592ee47305D9B3e10'
+export const TODO_LIST_ADDRESS = '0xd8e039B26176b56d668Eb10E92cb7e99C62b9BA4'
 export const TODO_LIST_ABI = [
     {
       "constant": true,
@@ -121,4 +121,4 @@ export const TODO_LIST_ABI = [
       "type": "function",
       "signature": "0x455f5024"
     }
-  ]  
+  ]

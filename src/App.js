@@ -38,7 +38,7 @@ class App extends Component {
         })
 
       }
-        console.log(this.state.tasks)
+        //console.log(this.state.tasks)
     }
 
     constructor(props){

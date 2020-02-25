@@ -63,6 +63,8 @@ class App extends Component {
       })
     }
 
+
+
     render(){
         return (
       <div>
@@ -79,7 +81,8 @@ class App extends Component {
         <main role="main" className="col-lg-12 d-flex justify-content-center">
             { this.state.loading
               ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
-              : <TodoList tasks={this.state.tasks} createTask={this.createTask}/>
+              : <TodoList tasks={this.state.tasks}
+                          createTask={this.createTask}/>
             }
           </main>
       </div>

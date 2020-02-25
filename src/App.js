@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
-import Web3 from 'web3';
-import './App.css';
+import React, { Component } from 'react'
+import Web3 from 'web3'
+import './App.css'
 import { TODO_LIST_ABI, TODO_LIST_ADDRESS } from './config.js'
 import TodoList from './TodoList.js'
 
-
-class App extends Component {
+  class App extends Component {
 
     componentDidMount(){
       this.loadBlockchainData();
@@ -73,8 +72,6 @@ class App extends Component {
       })
     }
 
-
-
     render(){
         return (
       <div>
@@ -91,8 +88,11 @@ class App extends Component {
         <main role="main" className="col-lg-12 d-flex justify-content-center">
             { this.state.loading
               ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
-              : <TodoList tasks={this.state.tasks}
-                          createTask={this.createTask}/>
+              : <TodoList
+                tasks={this.state.tasks}
+                createTask={this.createTask}
+                toggleCompleted={this.toggleCompleted}
+                />
             }
           </main>
       </div>

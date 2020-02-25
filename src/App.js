@@ -54,6 +54,15 @@ class App extends Component {
           loading: true,
         }
         this.createTask = this.createTask.bind(this)
+        this.toggleCompleted = this.toggleCompleted.bind(this)
+    }
+
+    toggleCompleted(taskId){
+      this.setState({loading:true})
+      this.state.todoList.methods.toggleCompleted(taskId).send({from: this.state.account})
+      .once('receipt', (receipt) => {
+        this.setState({loading:false})
+      })
     }
 
     createTask(content){

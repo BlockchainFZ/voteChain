@@ -28,13 +28,14 @@ class TodoList extends Component {
                     <label>
                       <input
                        type="checkbox"
+                       defaultChecked={task.completed}
                        name={task.id}
                        ref={(input) => {
                          this.checkbox = input
-                         console.log('checkbox', this.checkbox)
+                         
                        }}
                        onClick={(event) => {
-                          //console.log()
+                          this.props.toggleCompleted(task.id)
                          console.log(task.content)
                          console.log(task.id)
                          console.log(task.completed)

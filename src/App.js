@@ -28,6 +28,7 @@ class App extends Component {
         todoList
       })
       const taskCount = await todoList.methods.taskCount().call()
+
       this.setState({
         taskCount
       })
